@@ -1,0 +1,55 @@
+version: '3'
+services:
+
+  zedelivery:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    image: priscilasanfer/zedelivery
+    restart: on-failure
+    ports:
+    - "8080:8080"
+    depends_on:
+      - mysql
+    environment:
+      DATABASE_URL: jdbc:mysql://mysql:3306/zedelivery?createDatabaseIfNotExist=true
+      DATABASE_USERNAME: root
+      DATABASE_PASSWORD: mysql
+
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - volume-mysql:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql
+      MYSQL_DATABASE: zedelivery
+
+  prometheus:
+    image: prom/prometheus:v2.22.0
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus-volume:/etc/prometheus/
+    ports:
+      - "9090:9090"
+    environment:
+      TZ: America/Sao_Paulo
+
+  grafana:
+    image: grafana/grafana:7.3.4
+    volumes:
+      - grafana-volume:/var/lib/grafana
+      - ./grafana/:/etc/grafana/provisioning/
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prometheus
+    environment:
+      TZ: America/Sao_Paulo
+
+volumes:
+  grafana-volume:
+  prometheus-volume:
+  volume-mysql:
+
