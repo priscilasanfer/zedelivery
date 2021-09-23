@@ -16,6 +16,13 @@
 	<properties>
 		<java.version>11</java.version>
 		<micrometer.version>1.5.13</micrometer.version>
+		<jaeger.version>3.3.1</jaeger.version>
+		<geojson-jackson.version>1.0</geojson-jackson.version>
+		<hibernate-spatial.version>5.2.12.Final</hibernate-spatial.version>
+		<jackson-datatype.version>2.4</jackson-datatype.version>
+		<modelmapper.version>2.4.4</modelmapper.version>
+		<swagger.version>1.5.8</swagger.version>
+		<jaeger.version>3.2.2</jaeger.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -49,27 +56,27 @@
 		<dependency>
 			<groupId>de.grundid.opendatalab</groupId>
 			<artifactId>geojson-jackson</artifactId>
-			<version>1.0</version>
+			<version>${geojson-jackson.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-spatial</artifactId>
-			<version>5.2.12.Final</version>
+			<version>${hibernate-spatial.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.bedatadriven</groupId>
 			<artifactId>jackson-datatype-jts</artifactId>
-			<version>2.4</version>
+			<version>${jackson-datatype.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.modelmapper</groupId>
 			<artifactId>modelmapper</artifactId>
-			<version>2.4.4</version>
+			<version>${modelmapper.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-ui</artifactId>
-			<version>1.5.8</version>
+			<version>${swagger.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.micrometer</groupId>
@@ -79,6 +86,11 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.opentracing.contrib</groupId>
+			<artifactId>opentracing-spring-jaeger-web-starter</artifactId>
+			<version>${jaeger.version}</version>
 		</dependency>
 	</dependencies>
 
