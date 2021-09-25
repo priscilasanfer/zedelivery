@@ -1,0 +1,110 @@
+{
+	"info": {
+		"_postman_id": "4ea30b98-cfcb-4def-bfef-ebfe2444bd3e",
+		"name": "Ze Delivery",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Salvar PDV",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"trading_name\": \"Teste\",\n    \"owner_name\": \"Teste\",\n    \"document\": \"41.724.900/0001-69\",\n    \"coverage_area\": {\n        \"type\": \"MultiPolygon\",\n        \"coordinates\": [\n            [\n                [\n                    [\n                        -23.62602164463357, \n                        -46.7381894466976\n                    ],\n                    [\n                        -23.629565728490356, \n                        -46.732987795922256\n                    ],\n                    [\n                       -23.63554407423428, \n                       -46.732823285111884\n                    ],\n                    [\n                        -23.636859664595708, \n                        -46.74220555717418\n                    ],\n                    [\n                        -23.63019387098605, \n                        -46.74335440679014\n                    ],\n                    [\n                        -23.62602164463357, \n                        -46.7381894466976\n                    ]\n                ]\n            ]\n        ]\n    },\n    \"address\": {\n        \"type\": \"Point\",\n        \"coordinates\": [\n            -23.63155989012796, \n            -46.73796904391404\n        ]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/partners",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"partners"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buscar por id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/partners/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"partners",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buscar patner mais proximo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/partners?lat=-23.61995757905905&long=-46.740024659635814",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"partners"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "-23.61995757905905"
+						},
+						{
+							"key": "long",
+							"value": "-46.740024659635814"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "actuator",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/actuator",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"actuator"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

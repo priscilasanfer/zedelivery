@@ -80,3 +80,21 @@ Na opção ```Traces``` é possivel selecionar qual a origem das requests
 
 ![explore_jaeger](./src/main/resources/images/explore_jaeger.png)
 
+### Postman
+- [Collection](./src/main/resources/files/Ze%20Delivery.postman_collection.json)
+
+## Testes
+Infelizmente não consegui usar outra database para manter as bases separadas.  
+Tentei usar o H2gis e até mesmo separar as bases no docker-compose, mas ainda estou aprendendo a trabalhar com geolocalização.
+
+- Para rodar os testes: ```mvn test```
+  PS. Isso apagará todos os dados da base de dados.
+
+  
+## Próximos passos
+- Separar as bases de teste e desenvolvimento 
+- Apos separar ambientes ativar o jaeger novamente
+- Ajustar o Swagger para mostrar certo os paramentros de geolocalização
+- Adicionar segurança com keycloak e Oauth2  
+- Fazer deploy no heroku
+
