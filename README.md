@@ -7,7 +7,6 @@ Por [Priscila Ferreira](https://www.linkedin.com/in/priscilasanfer/)
 - Prometheus: Monitoramento e alertas
 - Swagger: Documentação
 - Docker: Conteinerização da aplicação
-- Jaeger: Tracing Distribuído
 
 ## Configuração do projeto
 Obs.: todos os comandos deverão ser executados na raiz do projeto.
@@ -65,21 +64,6 @@ Para usar um dashboard pré-configurado com configurações de métricas padrão
 
 ![grafana_import_dashboard](./src/main/resources/images/grafana_import_dashboard.png)
 
-### Jaeger
-- Para acessar a url do Jaeger: ```http://localhost:16686/```
-
-#### Adicionando database do Jaeger no Grafana
-- Siga os mesmos passos feitos para adicionar a database do Prometheus
-
-![database_jaeger](./src/main/resources/images/database_jaeger.png)
-
-#### Visualizando os logs (Jaeger)
-- No menu lateral clique na opção *Explore* e selecione o Jaeger.
-
-Na opção ```Traces``` é possivel selecionar qual a origem das requests 
-
-![explore_jaeger](./src/main/resources/images/explore_jaeger.png)
-
 ### Postman
 - [Collection](./src/main/resources/files/Ze%20Delivery.postman_collection.json)
 
@@ -89,7 +73,6 @@ Tentei usar o H2gis e até mesmo separar as bases no docker-compose, mas ainda e
 
 - Para rodar os testes: ```mvn test```
   PS. Isso apagará todos os dados da base de dados.
-
   
 ## Próximos passos
 - Separar as bases de teste e desenvolvimento 
