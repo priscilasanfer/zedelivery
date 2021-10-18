@@ -9,7 +9,7 @@ import java.util.Optional;
 @Repository
 public interface PartnerRepository extends JpaRepository<Partner, Long> {
 
-    @Query(nativeQuery = true, value = "select *, st_distance(POINT(:lat, -:lon), POINT(st_x(p.address), st_y(p.address))) as distance " +
+    @Query(nativeQuery = true, value = "select *, st_distance(POINT(:lat, :lon), POINT(st_x(p.address), st_y(p.address))) as distance " +
             "from partner p " +
             "where (st_contains (p.coverage_area, point(:lat, :lon))) = true " +
             "order by distance  limit 1 ")

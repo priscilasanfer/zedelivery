@@ -46,8 +46,8 @@ public class Factory {
 
     public static Partner createPartner() {
         geometryFactory = new GeometryFactory();
-        Point address10 = geometryFactory.createPoint(new Coordinate(-23.63155989012796, -46.73796904391404));
-        Coordinate[] coordinates10 = new Coordinate[]{
+        Point address = geometryFactory.createPoint(new Coordinate(-23.63155989012796, -46.73796904391404));
+        Coordinate[] coordinates = new Coordinate[]{
                 new Coordinate(-23.62602164463357, -46.7381894466976),
                 new Coordinate(-23.629565728490356, -46.732987795922256),
                 new Coordinate(-23.63554407423428, -46.732823285111884),
@@ -55,14 +55,64 @@ public class Factory {
                 new Coordinate(-23.63019387098605, -46.74335440679014),
                 new Coordinate(-23.62602164463357, -46.7381894466976)
         };
-        MultiPolygon coverageArea10 = geometryFactory.createMultiPolygon(new Polygon[]{geometryFactory.createPolygon(coordinates10)});
+        MultiPolygon coverageArea = geometryFactory.createMultiPolygon(new Polygon[]{geometryFactory.createPolygon(coordinates)});
 
         return Partner.builder()
                 .tradingName("Bar Morumbi town")
                 .ownerName("Felipe Rudenberg")
                 .document("71.028.255/0001-00")
-                .coverageArea(coverageArea10)
-                .address(address10)
+                .coverageArea(coverageArea)
+                .address(address)
+                .build();
+    }
+
+    public static Partner createFirstPartnerInsideSameCoverage(){
+
+        geometryFactory = new GeometryFactory();
+        Point address = geometryFactory.createPoint(new Coordinate(-23.62880428803707, -46.74045381303949));
+
+        Coordinate[] coordinates = new Coordinate[]{
+                new Coordinate(-23.633954763373332, -46.74126920450647),
+                new Coordinate(-23.627899985202756, -46.74607572262768),
+                new Coordinate(-23.624125436389537, -46.7408400511028),
+                new Coordinate(-23.624400667583583, -46.73191366030629),
+                new Coordinate(-23.629354730183472, -46.72951040124569),
+                new Coordinate(-23.633522288502686, -46.73131284554113),
+                new Coordinate(-23.633954763373332, -46.74126920450647),
+        };
+        MultiPolygon coverageArea = geometryFactory.createMultiPolygon(new Polygon[]{geometryFactory.createPolygon(coordinates)});
+
+        return Partner.builder()
+                .tradingName("Bar 1")
+                .ownerName("Proprietário 1")
+                .document("11.983.163/0001-58")
+                .coverageArea(coverageArea)
+                .address(address)
+                .build();
+    }
+
+
+    public static Partner createSecondPartnerInsideSameCoverage(){
+        geometryFactory = new GeometryFactory();
+        Point address = geometryFactory.createPoint(new Coordinate(-23.629865852962116, -46.73388776596321));
+
+        Coordinate[] coordinates = new Coordinate[]{
+                new Coordinate(-23.633954763373332, -46.74126920450647),
+                new Coordinate(-23.627899985202756, -46.74607572262768),
+                new Coordinate(-23.624125436389537, -46.7408400511028),
+                new Coordinate(-23.624400667583583, -46.73191366030629),
+                new Coordinate(-23.629354730183472, -46.72951040124569),
+                new Coordinate(-23.633522288502686, -46.73131284554113),
+                new Coordinate(-23.633954763373332, -46.74126920450647),
+        };
+        MultiPolygon coverageArea = geometryFactory.createMultiPolygon(new Polygon[]{geometryFactory.createPolygon(coordinates)});
+
+        return Partner.builder()
+                .tradingName("Bar 2")
+                .ownerName("Proprietário 2")
+                .document("51.751.984/0001-83")
+                .coverageArea(coverageArea)
+                .address(address)
                 .build();
     }
 }
